@@ -5,7 +5,6 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "plugin:prettier/recommended",
         "airbnb",
         "prettier"
     ],
@@ -23,7 +22,7 @@
       "react/jsx-filename-extension":[
         "warn",
         {
-          "extensions": [ "js", ".jsx"]
+          "extensions": [ "js", ".jsx", "tsx"]
         }
       ],
       "react-hooks/rules-of-hooks": "error",

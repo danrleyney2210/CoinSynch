@@ -4,7 +4,7 @@ import Logo from '../../../assets/svg/logo.svg'
 
 export const Menu = () => {
   return (
-    <S.Wrapper>
+    <S.Wrapper className="container">
       <S.ContentLogo>
         <img src={Logo} />
         <S.Ul>
@@ -34,7 +34,7 @@ export const Menu = () => {
 
         <S.ContentButton>
           <span>Sign in</span>
-          <Button text='Sign up' />
+          <Button text='Sign up' size='small' />
         </S.ContentButton>
       </S.ContentCoint>
     </S.Wrapper>
