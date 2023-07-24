@@ -7,13 +7,23 @@ import { Button } from '../../atomos/button'
 
 export const About = () => {
   return (
-    <S.Wrapper >
+    <S.Wrapper id="about">
 
       <S.Container>
+        <S.isMobileContentDescription>
+          <p className='subTitle'>Lorem ipsum </p>
+          <h2 className='title'>Lorem ipsum </h2>
+          <p className='description'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
+          </p>
+
+          <Button text='Sign up now' />
+        </S.isMobileContentDescription>
+
         <S.ContetCard>
           <S.RowCard>
             <S.Card>
-              <img src={Icon1}/>
+              <img src={Icon1} />
               <S.SubTitle>For your company</S.SubTitle>
               <S.Title>
                 Crypto Solutions
@@ -24,7 +34,7 @@ export const About = () => {
             </S.Card>
 
             <S.Card className='left'>
-              <img src={Icon2}/>
+              <img src={Icon2} />
               <S.SubTitle>For your company</S.SubTitle>
               <S.Title>
                 Crypto Solutions
@@ -37,7 +47,7 @@ export const About = () => {
 
           <S.RowCard className='right'>
             <S.Card>
-              <img src={Icon3}/>
+              <img src={Icon3} />
               <S.SubTitle>For your company</S.SubTitle>
               <S.Title>
                 Crypto Solutions
@@ -48,7 +58,7 @@ export const About = () => {
             </S.Card>
 
             <S.Card>
-              <img src={Icon4}/>
+              <img src={Icon4} />
               <S.SubTitle>For your company</S.SubTitle>
               <S.Title>
                 Crypto Solutions
@@ -68,7 +78,7 @@ export const About = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
           </p>
 
-          <Button text='Sign up now'/>
+          <Button text='Sign up now' />
         </S.ContentDescription>
       </S.Container>
     </S.Wrapper>

@@ -1,13 +1,13 @@
 
 import { Button } from '../../atomos/button'
 import * as S from './styles'
-import {BsArrowRight} from 'react-icons/bs'
+import { BsArrowRight } from 'react-icons/bs'
 import foto1 from '../../../assets/svg/main1.svg'
 import fotoBottom from '../../../assets/svg/backgroundDown.svg'
 
 export const Main = () => {
   return (
-    <S.Wrapper >
+    <S.Wrapper id="main">
       <S.ContentMain className='container'>
         <S.ContentText>
           <S.Title>
@@ -17,9 +17,12 @@ export const Main = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
           </p>
 
-          <Button text='SIGN UP NOW' size='medium'>
-            <BsArrowRight size={12}/>
-          </Button>
+          <S.ContenetBtn>
+            <Button text='SIGN UP NOW' size='large'>
+              <BsArrowRight size={12} />
+            </Button>
+          </S.ContenetBtn>
+
 
           <S.ContentCard>
             <S.Card>

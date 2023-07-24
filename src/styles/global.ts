@@ -17,10 +17,18 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
+  html{
+    scroll-behavior: smooth;
+  }
+
   .container {
     max-width: 1216px;
     width: 100%;
     margin: 0 auto;
+
+    @media(max-width: 1220px) {
+      padding: 0 24px;
+    }
   }
 
   h1, h2,h3,h4,h5,p,span {
