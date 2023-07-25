@@ -17,7 +17,7 @@ export const Footer = () => {
           </S.ContentMain>
 
           <S.ContentInput>
-            <Input type='text' label='Email' placeholder='Email' />
+            <Input type='email' label='Email' placeholder='Email' />
             <Button text='Subscribe' size='large' />
           </S.ContentInput>
         </div>

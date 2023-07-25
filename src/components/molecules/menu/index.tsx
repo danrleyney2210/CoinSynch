@@ -7,7 +7,8 @@ import { Input } from "../../atomos/input";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLock } from 'react-icons/bi'
 import User from '../../../assets/icons/user.svg'
-import { ReactSVG } from "react-svg";
+import { ReactSVG } from 'react-svg'
+import MenuMobile from '../../../assets/icons/menu.svg'
 
 export const Menu = () => {
   const [isOpenModalSignIn, setIsOpenModalSignIn] = useState<boolean>(false);
@@ -54,6 +55,10 @@ export const Menu = () => {
               <Button text="Sign up" size="small" onClick={() => setIsOpenModalSignUp(true)} />
             </S.ContentBtn>
           </S.ContentButton>
+
+          <S.MenuMobile>
+            <ReactSVG src={MenuMobile} />
+          </S.MenuMobile>
         </S.ContentCoint>
       </S.Content>
 

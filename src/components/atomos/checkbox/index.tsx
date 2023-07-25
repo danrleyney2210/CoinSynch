@@ -1,8 +1,10 @@
-
+import * as S from './styles'
 
 export const Checkbox = () => {
   return (
-    <div>Checkbox</div>
+    <S.Wrapper>
+      <input type="checkbox" />
+    </S.Wrapper>
   )
 }
 

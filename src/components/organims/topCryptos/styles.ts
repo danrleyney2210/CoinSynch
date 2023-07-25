@@ -28,3 +28,17 @@ export const Wrapper = styled.div`
     padding: 80px 24px !important;
   }
 `;
+
+export const ContentTable = styled.div`
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
+export const ContentAccordion = styled.div`
+  width: 100%;
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
+  }
+`;

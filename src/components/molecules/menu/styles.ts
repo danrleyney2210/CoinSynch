@@ -48,6 +48,10 @@ export const Ul = styled.ul`
       }
     }
   `};
+
+  @media (max-width: 588px) {
+    display: none;
+  }
 `;
 
 export const ContentCoint = styled.div`
@@ -152,6 +156,10 @@ export const IsMobileExchange = styled.div`
   @media (max-width: 968px) {
     display: flex;
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 export const ContentButton = styled.div`
   ${({ theme }) => css`
@@ -171,6 +179,10 @@ export const ContentButton = styled.div`
       width: 200px;
     }
   `}
+
+  @media (max-width: 588px) {
+    display: none;
+  }
 `;
 
 export const TitleModal = styled.h2`
@@ -228,5 +240,13 @@ export const ContentInputPassword = styled.div`
   span {
     font-size: 12px;
     color: ${({ theme }) => theme.secondary[500]};
+  }
+`;
+
+export const MenuMobile = styled.div`
+  display: none;
+
+  @media (max-width: 588px) {
+    display: block;
   }
 `;
