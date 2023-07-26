@@ -6,5 +6,5 @@ interface IRoutesProps {
 
 export const PrivateRoute = ({ children }: IRoutesProps) => {
   const params = useParams<{ id?: string }>();
-  return params.id ? children : <Navigate to="/" />;
+  return params.id ? children : <Navigate to="/" />
 };
