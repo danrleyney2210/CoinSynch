@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from "react";
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "small" | "medium" | "large";
   text: string;
-  icon?: unknown;
+  icon?: React.ReactNode;
   children?: React.ReactNode;
 }
 

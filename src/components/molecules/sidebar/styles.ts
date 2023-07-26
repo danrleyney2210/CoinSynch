@@ -6,6 +6,8 @@ export const Wrapper = styled.div`
   border-top: 1px solid var(--secondary-300, #e0deea);
   border-bottom: 1px solid var(--secondary-300, #e0deea);
   padding: 48px 24px;
+  position: fixed;
+  top: 64px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -13,5 +15,9 @@ export const Wrapper = styled.div`
 
   svg {
     cursor: pointer;
+  }
+
+  @media (max-width: 1368px) {
+    display: none;
   }
 `;

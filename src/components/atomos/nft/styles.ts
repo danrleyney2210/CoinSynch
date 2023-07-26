@@ -10,6 +10,17 @@ export const Wrapper = styled.div`
   svg {
     border-radius: 0 8px 8px 0;
   }
+
+  @media (max-width: 677px) {
+    flex-direction: column;
+    height: fit-content;
+
+    svg {
+      width: 100%;
+      border-radius: 0 0 8px 8px;
+      margin: 0px;
+    }
+  }
 `;
 
 export const Descrition = styled.div`
@@ -33,5 +44,9 @@ export const Descrition = styled.div`
   span {
     color: ${({ theme }) => theme.primary[500]};
     font-size: 12px;
+  }
+
+  @media (max-width: 677px) {
+    width: fit-content;
   }
 `;

@@ -9,6 +9,11 @@ export const Wrapper = styled.div`
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1368px) {
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
 `;
 export const Icon = styled.div`
   display: flex;
@@ -25,6 +30,10 @@ export const BalanceIn = styled.div`
   gap: 16px;
   padding: 24px;
   width: 312px;
+
+  @media (max-width: 1368px) {
+    width: 100%;
+  }
 `;
 
 export const Value = styled.div`
@@ -33,6 +42,7 @@ export const Value = styled.div`
   align-items: center;
   height: 100%;
   width: 280px;
+  border-radius: 0 8px 8px;
   background-color: ${({ theme }) => theme.primary[100]};
 
   > h3 {
@@ -40,6 +50,10 @@ export const Value = styled.div`
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
+  }
+
+  @media (max-width: 1368px) {
+    width: 100%;
   }
 `;
 

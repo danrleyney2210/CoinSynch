@@ -8,14 +8,18 @@ export const Variation = () => {
     <S.Wrapper>
       <S.Daily>
         <span>Daily Variation</span>
-        <S.Coin>
-          <ReactSVG src={Eth} />
-          <p>ETH</p>
-        </S.Coin>
-        <p className='gain'>+5,65%</p>
+        <div className='content-coin'>
+          <S.Coin>
+            <ReactSVG src={Eth} />
+            <p>ETH</p>
+          </S.Coin>
+          <p className='gain'>+5,65%</p>
+        </div>
       </S.Daily>
 
-      <ReactSVG src={Graph} />
+      <div className='content-graph'>
+        <ReactSVG src={Graph} />
+      </div>
     </S.Wrapper>
   )
 }

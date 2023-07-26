@@ -9,8 +9,6 @@ export const ContentMain = styled.div`
   display: flex;
   flex-direction: column;
   position: fixed;
-  width: 100%;
-  height: 100%;
 `;
 
 export const ContentBody = styled.div<TContentBody>`
@@ -22,10 +20,18 @@ export const ContentBody = styled.div<TContentBody>`
   h1 {
     color: #000;
   }
+
+  @media (max-width: 1368px) {
+    padding-left: 48px;
+  }
 `;
 
 export const Body = styled.div`
   padding: 56px;
+
+  @media (max-width: 1368px) {
+    padding-left: 0;
+  }
 `;
 
 export const Diagnostic = styled.div`
@@ -33,4 +39,11 @@ export const Diagnostic = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 1368px) {
+    flex-wrap: wrap;
+
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+  }
 `;

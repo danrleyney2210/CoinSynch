@@ -59,3 +59,7 @@ export const Body = styled.div`
     }
   }
 `;
+
+export const ContentBtn = styled.div`
+  cursor: pointer;
+`;

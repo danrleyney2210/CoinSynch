@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   background-color: #fff;
   box-shadow: 0px 4px 8px 0px rgba(77, 77, 77, 0.1);
-
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

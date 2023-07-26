@@ -16,6 +16,11 @@ export const Button = styled.button<IButtonSizeProps>`
   width: 100%;
   font-weight: normal;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   &:hover {
     background-color: ${({ theme }) => theme.primary[400]};
   }

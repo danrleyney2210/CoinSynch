@@ -7,12 +7,18 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 677px) {
+    flex-direction: column;
+    height: fit-content;
+  }
 `;
 
 export const Daily = styled.div`
   padding: 8px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   span {
     font-size: 12px;
@@ -20,6 +26,11 @@ export const Daily = styled.div`
     font-weight: 400;
     color: ${({ theme }) => theme.secondary[500]};
     margin-bottom: 16px;
+  }
+
+  .content-coin {
+    display: flex;
+    flex-direction: column;
   }
 
   .gain {
@@ -34,6 +45,15 @@ export const Daily = styled.div`
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
+  }
+
+  @media (max-width: 677px) {
+    .content-coin {
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 `;
 
@@ -51,5 +71,9 @@ export const Coin = styled.div`
   p {
     font-size: 14px;
     color: ${({ theme }) => theme.secondary[500]};
+  }
+
+  @media (max-width: 677px) {
+    margin-bottom: 0;
   }
 `;

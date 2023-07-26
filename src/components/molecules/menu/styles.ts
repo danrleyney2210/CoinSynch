@@ -10,10 +10,7 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  @media (max-width: 868px) {
-    border-bottom: 1px solid #f4f3f8;
-  }
+  border-bottom: 1px solid #f4f3f8;
 `;
 
 export const ContentLogo = styled.div`
@@ -57,23 +54,25 @@ export const Ul = styled.ul`
 export const ContentCoint = styled.div`
   display: flex;
   align-items: center;
-  /* gap: 80px; */
+  gap: 80px;
 `;
 
 export const Exchange = styled.div`
   max-width: 360px;
   width: 100%;
   display: flex;
+  /* background-color: #ccc; */
+
   overflow: hidden;
 
   cursor: pointer;
 
   > p {
-    overflow: hidden;
+    /* overflow: hidden; */
     color: ${({ theme }) => theme.secondary[600]};
     white-space: nowrap;
     font-size: 14px;
-    animation: moveLeft 10s linear infinite;
+    animation: moveLeft 15s linear infinite;
 
     .value {
       margin-right: 24px;
@@ -101,6 +100,30 @@ export const Exchange = styled.div`
   }
 
   @media (max-width: 968px) {
+    display: none;
+  }
+`;
+
+export const ContentButton = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    width: 167px;
+
+    > p {
+      color: ${theme.secondary[600]};
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 968px) {
+      width: 200px;
+    }
+  `}
+
+  @media (max-width: 588px) {
     display: none;
   }
 `;
@@ -159,29 +182,6 @@ export const IsMobileExchange = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
-  }
-`;
-export const ContentButton = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 24px;
-    width: 100%;
-
-    > span {
-      color: ${theme.secondary[600]};
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 968px) {
-      width: 200px;
-    }
-  `}
-
-  @media (max-width: 588px) {
-    display: none;
   }
 `;
 

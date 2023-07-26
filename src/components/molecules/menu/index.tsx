@@ -2,17 +2,80 @@ import { Button } from "../../atomos/button";
 import * as S from "./styles";
 import Logo from "../../../assets/svg/logo.svg";
 import { Modal } from "../../atomos/modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../../atomos/input";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLock } from 'react-icons/bi'
 import User from '../../../assets/icons/user.svg'
 import { ReactSVG } from 'react-svg'
 import MenuMobile from '../../../assets/icons/menu.svg'
+import axios from 'axios';
+import { QC_ACCESS_KEY, QC_SECRET_ACCESS_KEY } from "../../../config";
 
 export const Menu = () => {
   const [isOpenModalSignIn, setIsOpenModalSignIn] = useState<boolean>(false);
   const [isOpenModalSignUp, setIsOpenModalSignUp] = useState<boolean>(false);
+  const [coinPrice, setCointPrice] = useState([]);
+  const [coinChange, setCointChange] = useState([]);
+
+
+
+  const getCoinPrice = async () => {
+    const headers = {
+      'QC-Access-Key': QC_ACCESS_KEY,
+      'QC-Secret-Key': QC_SECRET_ACCESS_KEY
+    };
+
+    try {
+      const response = await axios.get('https://quantifycrypto.com/api/v1/coins/prices', { headers });
+
+      if (response.data) {
+        setCointPrice(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching coin price:', error);
+    }
+  };
+
+  const getPercentChange = async () => {
+    const headers = {
+      'QC-Access-Key': QC_ACCESS_KEY,
+      'QC-Secret-Key': QC_SECRET_ACCESS_KEY
+    };
+
+    try {
+      const response = await axios.get('https://quantifycrypto.com/api/v1/coins/percent-change', { headers });
+
+      if (response.data) {
+        setCointChange(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching coin price:', error);
+    }
+  }
+
+  // const promises = assets.map(asset =>
+  //   axios.get(`https://rest.coinapi.io/v1/exchangerate/${asset}/USD?apikey=${apiKey}`)
+  // );
+
+  // try {
+  //   const responses = await Promise.all(promises);
+
+
+
+
+
+  //   setPortfolio(exchangeRates);
+  // } catch (error) {
+  //   console.error('Error fetching exchange rates:', error);
+  // }
+
+
+  useEffect(() => {
+    Promise.all([getCoinPrice(), getPercentChange()]);
+
+  }, []);
+
 
   return (
     <S.Wrapper>
@@ -31,6 +94,7 @@ export const Menu = () => {
 
         <S.ContentCoint>
           <S.Exchange>
+
             <p>
               <span>BIT R$ 23,62</span>
               <span className="gain-color value"> +7,082</span>
@@ -50,7 +114,7 @@ export const Menu = () => {
           </S.Exchange>
 
           <S.ContentButton>
-            <span onClick={() => setIsOpenModalSignIn(true)}>Sign in</span>
+            <p onClick={() => setIsOpenModalSignIn(true)}>Sign in</p>
             <S.ContentBtn>
               <Button text="Sign up" size="small" onClick={() => setIsOpenModalSignUp(true)} />
             </S.ContentBtn>

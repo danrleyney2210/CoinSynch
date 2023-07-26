@@ -2,6 +2,8 @@ import { ReactSVG } from 'react-svg'
 import * as S from './styles'
 import Wallet from '../../../assets/icons/wallet.svg'
 import NothingWallet from '../../../assets/icons/nothingWallate.svg'
+import { Button } from '../button'
+import { AiOutlinePlus } from 'react-icons/ai'
 
 export const MyWallet = () => {
   return (
@@ -11,6 +13,10 @@ export const MyWallet = () => {
           <ReactSVG src={Wallet} />
           <p>My Wallet</p>
         </div>
+
+        <S.ContentBtn>
+          <Button text='Add crypto' size='small' icon={<AiOutlinePlus />} />
+        </S.ContentBtn>
       </S.Header>
 
       <S.Body>
