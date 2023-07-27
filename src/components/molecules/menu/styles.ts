@@ -72,7 +72,17 @@ export const Exchange = styled.div`
     color: ${({ theme }) => theme.secondary[600]};
     white-space: nowrap;
     font-size: 14px;
-    animation: moveLeft 15s linear infinite;
+    animation: moveLeft 60s linear infinite;
+
+    > b {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+
+      > span {
+        margin-left: 3px;
+      }
+    }
 
     .value {
       margin-right: 24px;
@@ -135,7 +145,7 @@ export const ContentMobile = styled.div`
   justify-content: center;
 `;
 export const IsMobileExchange = styled.div`
-  max-width: 360px;
+  /* max-width: 360px; */
   width: 100%;
   display: none;
   overflow: hidden;
@@ -145,11 +155,21 @@ export const IsMobileExchange = styled.div`
   cursor: pointer;
 
   > p {
-    overflow: hidden;
+    /* overflow: hidden; */
     color: ${({ theme }) => theme.secondary[600]};
     white-space: nowrap;
     font-size: 12px;
-    animation: moveLeft 10s linear infinite;
+    animation: moveLeft 60s linear infinite;
+
+    > b {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+
+      > span {
+        margin-left: 3px;
+      }
+    }
 
     .value {
       margin-right: 24px;

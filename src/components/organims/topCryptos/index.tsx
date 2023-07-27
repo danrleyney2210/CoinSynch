@@ -24,6 +24,7 @@ const data = [
 ]
 
 export const TopCryptos = () => {
+
   return (
     <S.Wrapper className="container" id="topCryptos">
       <h1>Top Cryptos</h1>

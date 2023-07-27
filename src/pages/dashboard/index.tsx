@@ -3,13 +3,13 @@ import { FooterDashboard } from "../../components/molecules/footerDasboard";
 import { HeaderDashboard } from "../../components/molecules/headerDashboard";
 import { Sidebar } from "../../components/molecules/sidebar";
 import * as S from "./styles";
-import { IDashboardProps } from "./types";
+
 import { Banlance } from "../../components/atomos/balance";
 import { Variation } from "../../components/atomos/variation";
 import { Nft } from "../../components/atomos/nft";
 import { MyWallet } from "../../components/atomos/myWallate";
 
-export const Dashboard = ({ children }: IDashboardProps) => {
+export const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false)
 
 
@@ -28,7 +28,7 @@ export const Dashboard = ({ children }: IDashboardProps) => {
             <Nft />
           </S.Diagnostic>
           <MyWallet />
-          {children}
+
         </S.Body>
       </S.ContentBody>
 

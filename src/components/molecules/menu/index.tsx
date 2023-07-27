@@ -2,80 +2,20 @@ import { Button } from "../../atomos/button";
 import * as S from "./styles";
 import Logo from "../../../assets/svg/logo.svg";
 import { Modal } from "../../atomos/modal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Input } from "../../atomos/input";
 import { AiOutlineMail } from "react-icons/ai";
-import { BiLock } from 'react-icons/bi'
-import User from '../../../assets/icons/user.svg'
-import { ReactSVG } from 'react-svg'
-import MenuMobile from '../../../assets/icons/menu.svg'
-import axios from 'axios';
-import { QC_ACCESS_KEY, QC_SECRET_ACCESS_KEY } from "../../../config";
+import { BiLock } from "react-icons/bi";
+import User from "../../../assets/icons/user.svg";
+import { ReactSVG } from "react-svg";
+import MenuMobile from "../../../assets/icons/menu.svg";
+import { useAuth } from "../../../context/Auth";
 
 export const Menu = () => {
   const [isOpenModalSignIn, setIsOpenModalSignIn] = useState<boolean>(false);
   const [isOpenModalSignUp, setIsOpenModalSignUp] = useState<boolean>(false);
-  const [coinPrice, setCointPrice] = useState([]);
-  const [coinChange, setCointChange] = useState([]);
 
-
-
-  const getCoinPrice = async () => {
-    const headers = {
-      'QC-Access-Key': QC_ACCESS_KEY,
-      'QC-Secret-Key': QC_SECRET_ACCESS_KEY
-    };
-
-    try {
-      const response = await axios.get('https://quantifycrypto.com/api/v1/coins/prices', { headers });
-
-      if (response.data) {
-        setCointPrice(response.data);
-      }
-    } catch (error) {
-      console.error('Error fetching coin price:', error);
-    }
-  };
-
-  const getPercentChange = async () => {
-    const headers = {
-      'QC-Access-Key': QC_ACCESS_KEY,
-      'QC-Secret-Key': QC_SECRET_ACCESS_KEY
-    };
-
-    try {
-      const response = await axios.get('https://quantifycrypto.com/api/v1/coins/percent-change', { headers });
-
-      if (response.data) {
-        setCointChange(response.data);
-      }
-    } catch (error) {
-      console.error('Error fetching coin price:', error);
-    }
-  }
-
-  // const promises = assets.map(asset =>
-  //   axios.get(`https://rest.coinapi.io/v1/exchangerate/${asset}/USD?apikey=${apiKey}`)
-  // );
-
-  // try {
-  //   const responses = await Promise.all(promises);
-
-
-
-
-
-  //   setPortfolio(exchangeRates);
-  // } catch (error) {
-  //   console.error('Error fetching exchange rates:', error);
-  // }
-
-
-  useEffect(() => {
-    Promise.all([getCoinPrice(), getPercentChange()]);
-
-  }, []);
-
+  const { coins, formatCoint, formatChange } = useAuth();
 
   return (
     <S.Wrapper>
@@ -94,23 +34,27 @@ export const Menu = () => {
 
         <S.ContentCoint>
           <S.Exchange>
+            {/* <p>
+              <b>
+                BIT R$ 23,62
+                <span className="gain-color value"> +7,082</span>
+              </b>
+            </p> */}
 
             <p>
-              <span>BIT R$ 23,62</span>
-              <span className="gain-color value"> +7,082</span>
-
-              <span> DOG R$ 23,62</span>
-              <span className="loss-color value"> +7,082</span>
-
-              <span> ETH R$ 23,62</span>
-              <span className="loss-color value"> -5,230</span>
-
-              <span> SQL R$ 23,62</span>
-              <span className="gain-color value"> +3,230</span>
-
-              <span> XLM R$ 23,62</span>
-              <span className="loss-color value"> -1,230</span>
+              {coins &&
+                coins.map((coin) => (
+                  <b key={coin.rank}>
+                    {coin.name} {formatCoint(coin.price)}
+                    <span className={coin.change > 0 ? "gain-color value" : "loss-color value"}>
+                      {formatChange(coin.change)}
+                    </span>
+                  </b>
+                ))}
             </p>
+
+            {/* <span>BIT R$ 23,62</span>
+              <span className="gain-color value"> +7,082</span> */}
           </S.Exchange>
 
           <S.ContentButton>
@@ -129,20 +73,15 @@ export const Menu = () => {
       <S.ContentMobile>
         <S.IsMobileExchange>
           <p>
-            <span>BIT R$ 23,62</span>
-            <span className="gain-color value"> +7,082</span>
-
-            <span> DOG R$ 23,62</span>
-            <span className="loss-color value"> +7,082</span>
-
-            <span> ETH R$ 23,62</span>
-            <span className="loss-color value"> -5,230</span>
-
-            <span> SQL R$ 23,62</span>
-            <span className="gain-color value"> +3,230</span>
-
-            <span> XLM R$ 23,62</span>
-            <span className="loss-color value"> -1,230</span>
+            {coins &&
+              coins.map((coin) => (
+                <b key={coin.rank}>
+                  {coin.name} {formatCoint(coin.price)}
+                  <span className={coin.change > 0 ? "gain-color value" : "loss-color value"}>
+                    {formatChange(coin.change)}
+                  </span>
+                </b>
+              ))}
           </p>
         </S.IsMobileExchange>
       </S.ContentMobile>
@@ -164,7 +103,8 @@ export const Menu = () => {
             <Button text="Sign in" size="medium" />
           </S.ContentInputPassword>
           <p>
-            Don’t have an account? <b>Sign up to</b> <span>Coin</span><strong>Synch</strong>
+            Don’t have an account? <b>Sign up to</b> <span>Coin</span>
+            <strong>Synch</strong>
           </p>
         </S.FormSign>
       </Modal>
@@ -186,7 +126,8 @@ export const Menu = () => {
           <Button text="Sign up" size="medium" />
 
           <p>
-            Already have and account? <b>Sign up to</b> <span>Coin</span><strong>Synch</strong>
+            Already have and account? <b>Sign up to</b> <span>Coin</span>
+            <strong>Synch</strong>
           </p>
         </S.FormSign>
       </Modal>
