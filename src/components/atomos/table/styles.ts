@@ -18,6 +18,14 @@ export const Table = styled.table`
       height: 64px;
       width: 100%;
 
+      .gain-color {
+        color: #149e55;
+      }
+
+      .loss-color {
+        color: #a12226;
+      }
+
       td {
         color: ${({ theme }) => theme.secondary[500]};
       }
@@ -33,10 +41,14 @@ export const Table = styled.table`
         height: 64px;
         width: 346px;
 
-        > span {
+        > p {
           margin: 0;
           display: block;
-          color: ${({ theme }) => theme.secondary[500]};
+          color: ${({ theme }) => theme.secondary[600]};
+
+          span {
+            color: ${({ theme }) => theme.secondary[500]};
+          }
         }
 
         > img,

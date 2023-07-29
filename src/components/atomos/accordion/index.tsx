@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import * as S from "./styles";
-import { IAccordionProps, IItem } from "./types";
+import { IAccordionProps } from "./types";
 import { ReactSVG } from "react-svg";
 import ArrowDown from "../../../assets/icons/arrowDown.svg";
 import ArrowTop from "../../../assets/icons/arrowTop.svg";
-import Bit from "../../../assets/icons/bitcoin.svg";
+import { IcoinProps } from "../../../context/types";
+import { useAuth } from "../../../context/Auth";
 
 export const Accordion = ({ items, keepOthersOpen }: IAccordionProps) => {
-  const [accordionItems, setAccordionItems] = useState<IItem[]>([]);
+  const [accordionItems, setAccordionItems] = useState<IcoinProps[]>([]);
+  const { formatChange, formatCoint, formatName } = useAuth();
 
   useEffect(() => {
     if (items) {
       setAccordionItems([
-        ...items.map((item: IItem) => ({
+        ...items.map((item: IcoinProps) => ({
           ...item,
           toggled: false,
         })),
@@ -20,12 +22,12 @@ export const Accordion = ({ items, keepOthersOpen }: IAccordionProps) => {
     }
   }, [items]);
 
-  function handleAccordionToggle(clickedItem: IItem) {
+  function handleAccordionToggle(clickedItem: IcoinProps) {
     setAccordionItems([
-      ...accordionItems.map((item: IItem) => {
+      ...accordionItems.map((item: IcoinProps) => {
         let toggled = item.toggled;
 
-        if (clickedItem.id === item.id) {
+        if (clickedItem.rank === item.rank) {
           toggled = !item.toggled;
         } else if (!keepOthersOpen) {
           toggled = false;
@@ -51,8 +53,8 @@ export const Accordion = ({ items, keepOthersOpen }: IAccordionProps) => {
           <div className={`accordion ${coin.toggled ? "toggled" : ""}`} key={key}>
             <button className="toggle" onClick={() => handleAccordionToggle(coin)}>
               <div className="coin">
-                <ReactSVG src={Bit} />
-                <p>{coin.label}</p>
+                <img src={coin.icon} alt="Coin Name" />
+                <p>{formatName(coin.name)}</p>
               </div>
 
               <div className="direction-indicator">
@@ -63,14 +65,15 @@ export const Accordion = ({ items, keepOthersOpen }: IAccordionProps) => {
               <div className="content">
                 <div className="row">
                   <p>Price</p>
-                  <b>{coin.price}</b>
+                  <b>US{formatCoint(coin.price)}</b>
                 </div>
 
                 <div className="row">
                   <p>Change</p>
-                  <b className="price-gain">{coin.change}</b>
+                  <b className={coin.change > 0 ? "gain-color" : "loss-color"}>
+                    {formatChange(coin.change)} %
+                  </b>
                 </div>
-                {/* {listItem.renderContent()} */}
               </div>
             </div>
           </div>

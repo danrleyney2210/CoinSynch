@@ -1,3 +1,5 @@
+import { IcoinProps } from "../../../context/types";
+
 export interface IItem {
   id: number;
   label: string;
@@ -7,6 +9,6 @@ export interface IItem {
 }
 
 export interface IAccordionProps {
-  items: IItem[];
+  items: IcoinProps[];
   keepOthersOpen: boolean;
 }

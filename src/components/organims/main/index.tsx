@@ -4,8 +4,13 @@ import * as S from './styles'
 import { BsArrowRight } from 'react-icons/bs'
 import foto1 from '../../../assets/svg/main1.svg'
 import fotoBottom from '../../../assets/svg/backgroundDown.svg'
+import { Modal } from '../../atomos/modal'
+import { ModalSignUp } from '../../molecules/ModalSignUp'
+import { useState } from 'react'
 
 export const Main = () => {
+  const [isOpenModalSignUp, setIsOpenModalSignUp] = useState<boolean>(false);
+
   return (
     <S.Wrapper id="main">
       <S.ContentMain className='container'>
@@ -18,7 +23,7 @@ export const Main = () => {
           </p>
 
           <S.ContenetBtn>
-            <Button text='SIGN UP NOW' size='large'>
+            <Button text='SIGN UP NOW' size='large' onClick={() => setIsOpenModalSignUp(!isOpenModalSignUp)}>
               <BsArrowRight size={12} />
             </Button>
           </S.ContenetBtn>
@@ -41,6 +46,10 @@ export const Main = () => {
       </S.ContentMain>
 
       <img src={fotoBottom} />
+
+      <Modal isOpen={isOpenModalSignUp} onClose={() => setIsOpenModalSignUp(false)}>
+        <ModalSignUp />
+      </Modal>
 
     </S.Wrapper>
   )

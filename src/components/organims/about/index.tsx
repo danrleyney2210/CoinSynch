@@ -4,10 +4,17 @@ import Icon2 from '../../../assets/icons/icon2.svg'
 import Icon3 from '../../../assets/icons/icon3.svg'
 import Icon4 from '../../../assets/icons/icon4.svg'
 import { Button } from '../../atomos/button'
+import { Modal } from '../../atomos/modal'
+import { ModalSignUp } from '../../molecules/ModalSignUp'
+import { useState } from 'react'
 
 export const About = () => {
+  const [isOpenModalSignUp, setIsOpenModalSignUp] = useState<boolean>(false);
+
   return (
     <S.Wrapper id="about">
+
+
 
       <S.Container>
         <S.isMobileContentDescription>
@@ -17,7 +24,7 @@ export const About = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
           </p>
 
-          <Button text='Sign up now' />
+          <Button text='Sign up now' onClick={() => setIsOpenModalSignUp(!isOpenModalSignUp)} />
         </S.isMobileContentDescription>
 
         <S.ContetCard>
@@ -78,9 +85,15 @@ export const About = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
           </p>
 
-          <Button text='Sign up now' />
+          <Button text='Sign up now' onClick={() => setIsOpenModalSignUp(true)} />
         </S.ContentDescription>
+
       </S.Container>
+
+      <Modal isOpen={isOpenModalSignUp} onClose={() => setIsOpenModalSignUp(false)}>
+        <ModalSignUp />
+      </Modal>
+
     </S.Wrapper>
   )
 }

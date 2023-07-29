@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
     > img,
     svg,
     svg {
-      width: 32px;
+      width: 24px;
       height: 24px;
     }
 
@@ -102,8 +102,12 @@ export const Wrapper = styled.div`
       color: ${({ theme }) => theme.secondary[500]};
     }
 
-    .price-gain {
-      color: ${({ theme }) => theme.Tertiary[700]};
+    .gain-color {
+      color: #149e55;
+    }
+
+    .loss-color {
+      color: #a12226;
     }
   }
 

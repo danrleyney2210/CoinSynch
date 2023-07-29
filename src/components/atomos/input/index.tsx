@@ -5,7 +5,7 @@ import { ReactSVG } from 'react-svg'
 import { useState } from "react";
 import { BsEyeSlash } from 'react-icons/bs'
 
-export const Input = ({ label, type, name, icon, placeholder, ...rest }: IInputProps) => {
+export const Input = ({ label, type, name, icon, placeholder, isPassword, ...rest }: IInputProps) => {
   const [isType, setIsType] = useState(type);
 
   function handleChangeType() {
@@ -24,10 +24,8 @@ export const Input = ({ label, type, name, icon, placeholder, ...rest }: IInputP
           icon && icon
         }
         <input type={isType} name={name} id={name} placeholder={placeholder} {...rest} />
-
-        {type === 'text' && <BsEyeSlash onClick={handleChangeType} />}
-        {type === 'password' && <ReactSVG src={IconEyes} onClick={handleChangeType} />}
-
+        {isType === 'text' && isPassword && <ReactSVG src={IconEyes} onClick={handleChangeType} />}
+        {isType === 'password' && isPassword && <BsEyeSlash onClick={handleChangeType} />}
       </S.ContentInput>
     </S.Wrapper>
   );

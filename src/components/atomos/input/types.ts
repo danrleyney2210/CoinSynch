@@ -6,6 +6,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode;
   name?: string;
   placeholder?: string;
+  isPassword?: boolean;
 }
 
 export interface ITypeProps {

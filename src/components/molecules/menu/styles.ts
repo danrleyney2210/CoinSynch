@@ -72,7 +72,7 @@ export const Exchange = styled.div`
     color: ${({ theme }) => theme.secondary[600]};
     white-space: nowrap;
     font-size: 14px;
-    animation: moveLeft 60s linear infinite;
+    animation: moveLeft 15s linear infinite;
 
     > b {
       font-size: 14px;
@@ -102,10 +102,10 @@ export const Exchange = styled.div`
 
   @keyframes moveLeft {
     from {
-      transform: translateX(100%); /* Inicia a animação com o texto fora do lado direito */
+      transform: translateX(0%);
     }
     to {
-      transform: translateX(-100%); /* Termina a animação com o texto fora do lado esquerdo */
+      transform: translateX(-100%);
     }
   }
 

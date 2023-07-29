@@ -6,16 +6,16 @@ import { useState } from "react";
 import { Input } from "../../atomos/input";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLock } from "react-icons/bi";
-import User from "../../../assets/icons/user.svg";
 import { ReactSVG } from "react-svg";
 import MenuMobile from "../../../assets/icons/menu.svg";
 import { useAuth } from "../../../context/Auth";
+import { ModalSignUp } from "../ModalSignUp";
 
 export const Menu = () => {
   const [isOpenModalSignIn, setIsOpenModalSignIn] = useState<boolean>(false);
   const [isOpenModalSignUp, setIsOpenModalSignUp] = useState<boolean>(false);
 
-  const { coins, formatCoint, formatChange } = useAuth();
+  const { coins, formatCoint, formatChange, formatName } = useAuth();
 
   return (
     <S.Wrapper>
@@ -45,16 +45,14 @@ export const Menu = () => {
               {coins &&
                 coins.map((coin) => (
                   <b key={coin.rank}>
-                    {coin.name} {formatCoint(coin.price)}
+                    {coin.symbol.toLocaleUpperCase()} {formatCoint(coin.price)}
                     <span className={coin.change > 0 ? "gain-color value" : "loss-color value"}>
-                      {formatChange(coin.change)}
+                      {formatChange(coin.change)} %
                     </span>
                   </b>
                 ))}
             </p>
 
-            {/* <span>BIT R$ 23,62</span>
-              <span className="gain-color value"> +7,082</span> */}
           </S.Exchange>
 
           <S.ContentButton>
@@ -76,7 +74,7 @@ export const Menu = () => {
             {coins &&
               coins.map((coin) => (
                 <b key={coin.rank}>
-                  {coin.name} {formatCoint(coin.price)}
+                  {formatName(coin.name)} {formatCoint(coin.price)}
                   <span className={coin.change > 0 ? "gain-color value" : "loss-color value"}>
                     {formatChange(coin.change)}
                   </span>
@@ -98,7 +96,7 @@ export const Menu = () => {
           <Input name="email" placeholder="Email" type="email" icon={<AiOutlineMail />} />
 
           <S.ContentInputPassword>
-            <Input name="password" placeholder="Password" type="password" icon={<BiLock />} />
+            <Input name="password" isPassword placeholder="Password" type="password" icon={<BiLock />} />
             <span>Forgot password?</span>
             <Button text="Sign in" size="medium" />
           </S.ContentInputPassword>
@@ -110,26 +108,7 @@ export const Menu = () => {
       </Modal>
 
       <Modal isOpen={isOpenModalSignUp} onClose={() => setIsOpenModalSignUp(false)}>
-        <S.TitleModal>
-          Sign up to{" "}
-          <b>
-            Coin<strong>Synch</strong>
-          </b>
-        </S.TitleModal>
-
-        <S.FormSign action="">
-          <Input name="name" placeholder="Name" type="text" icon={<ReactSVG src={User} />} />
-          <Input name="email" placeholder="Email" type="email" icon={<AiOutlineMail />} />
-          <Input name="password" placeholder="Password" type="password" icon={<BiLock />} />
-          <Input name="confirmPassword" placeholder="Password" type="password" icon={<BiLock />} />
-
-          <Button text="Sign up" size="medium" />
-
-          <p>
-            Already have and account? <b>Sign up to</b> <span>Coin</span>
-            <strong>Synch</strong>
-          </p>
-        </S.FormSign>
+        <ModalSignUp />
       </Modal>
     </S.Wrapper>
   );

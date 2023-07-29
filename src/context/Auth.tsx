@@ -1,9 +1,8 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 // import { toast } from "react-toastify";
 import { AuthContextData, IcoinProps, Props, TResponseData, TUser } from "./types";
-import { QC_ACCESS_KEY, QC_SECRET_ACCESS_KEY } from "../config";
 import axios from "axios";
 
 
@@ -27,25 +26,26 @@ export function AuthProvider({ children }: Props) {
     setIsLoading(false)
   }
 
-  const getCoin = async () => {
-    const headers = {
-      'QC-Access-Key': QC_ACCESS_KEY,
-      'QC-Secret-Key': QC_SECRET_ACCESS_KEY,
-    };
+  const getCoin = async (size: number) => {
 
     try {
-      const response = await axios.get('https://quantifycrypto.com/api/v1/coins/multiple', { headers })
+      setIsLoading(true)
+      const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${size}&page=1&sparkline=false`);
 
       if (response.data) {
-        const resultAll = response.data.data.map((item: TResponseData) => ({
-          rank: item.rank,
-          name: item.coin_symbol,
-          price: item.coin_price,
-          change: item.percent_change_5min,
+        const resultAll = response.data.map((item: TResponseData) => ({
+          icon: item.image,
+          rank: item.market_cap_rank,
+          name: item.name,
+          symbol: item.symbol,
+          price: item.current_price,
+          change: item.price_change_24h,
+          toggled: false,
         }));
 
         const result = resultAll.slice(0, 10);
         setCoins(result);
+        setIsLoading(false)
       }
     } catch (error) {
       console.error('Error fetching coin price:', error);
@@ -55,32 +55,39 @@ export function AuthProvider({ children }: Props) {
     }
   };
 
+  const formatName = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   const formatCoint = (coin: number) => {
-    return coin.toLocaleString("en-US", { style: "currency", currency: "USD" });
+    let formattedNumber = coin.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    return formattedNumber = formattedNumber.replace('$', '$ ');
   };
 
   const formatChange = (change: number) => {
     if (change < 0) {
       return ` - ${Math.abs(change).toFixed(2)}`
     } else {
-      return `+ ${+ change}`
+      return `+ ${+ Math.abs(change).toFixed(2)}`
     }
   }
 
-  useEffect(() => { getCoin() }, [])
+  useEffect(() => { getCoin(5) }, [])
 
   return (
     <AuthContext.Provider value={{
       coins,
       auth,
+      getCoin,
       setAuth,
       user,
       AuthLogin,
       isError,
       setIsError,
       isLoading,
+      formatName,
       formatCoint,
-      formatChange
+      formatChange,
     }}>
       {children}
     </AuthContext.Provider>
