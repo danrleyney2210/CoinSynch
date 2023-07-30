@@ -15,7 +15,6 @@ export const Footer = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
             </p>
           </S.ContentMain>
-
           <S.ContentInput>
             <Input type='email' label='Email' placeholder='Email' />
             <Button text='Subscribe' size='large' />

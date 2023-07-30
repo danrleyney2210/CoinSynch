@@ -120,4 +120,12 @@ export const Wrapper = styled.div`
   .accordion .content {
     padding: 10px 15px;
   }
+
+  @media (max-width: 768px) {
+    .header-accordion {
+      span {
+        margin-top: 0px;
+      }
+    }
+  }
 `;

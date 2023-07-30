@@ -44,6 +44,13 @@ export const Wrapper = styled.div`
 
     @media (max-width: 1220px) {
       padding: 0 24px;
+
+      .content-footer {
+        justify-content: center;
+        > span {
+          display: none;
+        }
+      }
     }
   }
 
@@ -94,6 +101,20 @@ export const ContentMain = styled.div`
 
   @media (max-width: 850px) {
     padding: 0;
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 `;
 

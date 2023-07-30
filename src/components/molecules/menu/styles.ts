@@ -55,6 +55,7 @@ export const ContentCoint = styled.div`
   display: flex;
   align-items: center;
   gap: 80px;
+  /* width: 100%; */
 `;
 
 export const Exchange = styled.div`

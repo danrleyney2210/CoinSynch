@@ -28,6 +28,10 @@ export const Container = styled.div`
     flex-direction: column;
     gap: 40px;
   }
+
+  @media (max-width: 600px) {
+    gap: 24px;
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -91,6 +95,7 @@ export const RowCard = styled.div`
 `;
 
 export const Card = styled.div`
+  border-radius: 6px;
   height: 268px;
   max-width: 268px;
   width: 100%;
@@ -196,5 +201,23 @@ export const isMobileContentDescription = styled.div`
 
   @media (max-width: 1220px) {
     display: block;
+
+    .subTitle {
+      font-size: 16px;
+    }
+
+    .title {
+      font-size: 24px;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 24px;
+      margin-bottom: 0px;
+    }
+
+    > button {
+      display: none;
+    }
   }
 `;

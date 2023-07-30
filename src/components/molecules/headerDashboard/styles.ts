@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   align-items: center;
   height: 64px;
   padding: 0 32px;
+  /* position: relative; */
 `;
 
 export const ContentUser = styled.div`
@@ -34,10 +35,32 @@ export const Name = styled.div`
   font-style: normal;
   font-weight: 400;
   color: ${({ theme }) => theme.secondary[500]};
+  cursor: pointer;
 
   svg {
     width: 8px;
     height: 8px;
+    cursor: pointer;
+  }
+`;
+
+export const Logout = styled.div`
+  position: absolute;
+  height: fit-content;
+  width: 150px;
+  background-color: #fff;
+  padding: 16px;
+  right: 30px;
+  top: 70px;
+  bottom: -16px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  > span {
+    color: ${({ theme }) => theme.secondary[500]};
+    font-size: 14px;
     cursor: pointer;
   }
 `;

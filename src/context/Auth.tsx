@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { AuthContextData, IcoinProps, Props, TResponseData, TUser } from "./types";
 import axios from "axios";
 
@@ -23,9 +23,11 @@ export function AuthProvider({ children }: Props) {
   const AuthLogin = async (data: TUser) => {
     setIsLoading(true)
     if (data.email == 'eu@asynch.com' && data.password == '123') {
+      toast.success("Login efetuado com sucesso!")
       navigate('dashboard')
       setIsLoading(false)
     } else {
+      toast.error("Email ou senha inválidos!")
       setIsError(true)
     }
   }
@@ -53,6 +55,7 @@ export function AuthProvider({ children }: Props) {
       }
     } catch (error) {
       console.error('Error fetching coin price:', error);
+      setIsLoading(false)
       setIsError(true);
     } finally {
       setIsLoading(false);

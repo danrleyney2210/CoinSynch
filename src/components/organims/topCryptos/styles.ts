@@ -27,6 +27,16 @@ export const Wrapper = styled.div`
   @media (max-width: 1220px) {
     padding: 80px 24px !important;
   }
+
+  @media (max-width: 600px) {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+
+    > h1 {
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+  }
 `;
 
 export const ContentTable = styled.div`

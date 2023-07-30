@@ -14,6 +14,7 @@ export const ContentMain = styled.div`
   }
 
   @media (max-width: 1011px) {
+    justify-content: center;
     > img {
       display: none;
     }
@@ -23,6 +24,17 @@ export const ContentMain = styled.div`
 export const ContenetBtn = styled.div`
   max-width: 278px;
   width: 100%;
+
+  @media (max-width: 1011px) {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+
+    button {
+      width: 180px;
+      font-size: 14px;
+    }
+  }
 `;
 
 export const ContentText = styled.div`
@@ -41,6 +53,19 @@ export const ContentText = styled.div`
       color: ${theme.secondary[600]};
     }
   `}
+
+  @media (max-width: 1011px) {
+    margin-top: 56px;
+    justify-content: center;
+
+    > p {
+      text-align: center;
+      font-size: 14px;
+      line-height: 24px;
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
+  }
 `;
 
 export const Title = styled.h1`
@@ -50,6 +75,14 @@ export const Title = styled.h1`
     max-width: 590px;
     font-weight: 700;
   `}
+
+  @media (max-width: 1011px) {
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 20px;
+  }
 `;
 
 export const ContentCard = styled.div`
@@ -57,12 +90,29 @@ export const ContentCard = styled.div`
   display: flex;
   gap: 32px;
   align-items: center;
+
+  @media (max-width: 1011px) {
+    margin-top: 24px;
+    justify-content: center;
+  }
 `;
 
 export const Card = styled.div`
   ${({ theme }) => css`
-    padding: 16px;
     background-color: ${theme.primary[100]};
     color: ${theme.primary[500]};
+    padding: 6px 16px;
+    border-radius: 4px;
+
+    > span {
+      font-size: 16px;
+    }
   `}
+
+  @media (max-width: 1011px) {
+    padding: 6px 16px;
+    > span {
+      font-size: 12px;
+    }
+  }
 `;
