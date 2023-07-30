@@ -3,19 +3,41 @@ import * as S from "./styles";
 import Logo from "../../../assets/svg/logo.svg";
 import { Modal } from "../../atomos/modal";
 import { useState } from "react";
-import { Input } from "../../atomos/input";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLock } from "react-icons/bi";
 import { ReactSVG } from "react-svg";
 import MenuMobile from "../../../assets/icons/menu.svg";
 import { useAuth } from "../../../context/Auth";
 import { ModalSignUp } from "../ModalSignUp";
+import { useForm, FormProvider } from "react-hook-form";
+import { InputRHF } from "../../atomos/RFH/InputRHF";
+import { TForm } from "./types";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 export const Menu = () => {
   const [isOpenModalSignIn, setIsOpenModalSignIn] = useState<boolean>(false);
   const [isOpenModalSignUp, setIsOpenModalSignUp] = useState<boolean>(false);
 
-  const { coins, formatCoint, formatChange, formatName } = useAuth();
+  const { coins, formatCoint, formatChange, AuthLogin } = useAuth();
+
+  const schema = yup.object().shape({
+    email: yup.string().email("Email inválido").required("Email obrigatório"),
+    password: yup.string().required("Senha obrigatória"),
+  });
+
+  const methods = useForm<TForm>({
+    resolver: yupResolver(schema),
+  });
+
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = methods;
+
+  const onSubmit = (data: TForm) => {
+    AuthLogin(data);
+  };
 
   return (
     <S.Wrapper>
@@ -34,13 +56,6 @@ export const Menu = () => {
 
         <S.ContentCoint>
           <S.Exchange>
-            {/* <p>
-              <b>
-                BIT R$ 23,62
-                <span className="gain-color value"> +7,082</span>
-              </b>
-            </p> */}
-
             <p>
               {coins &&
                 coins.map((coin) => (
@@ -52,7 +67,6 @@ export const Menu = () => {
                   </b>
                 ))}
             </p>
-
           </S.Exchange>
 
           <S.ContentButton>
@@ -74,7 +88,7 @@ export const Menu = () => {
             {coins &&
               coins.map((coin) => (
                 <b key={coin.rank}>
-                  {formatName(coin.name)} {formatCoint(coin.price)}
+                  {coin.symbol.toLocaleUpperCase()} {formatCoint(coin.price)}
                   <span className={coin.change > 0 ? "gain-color value" : "loss-color value"}>
                     {formatChange(coin.change)}
                   </span>
@@ -91,20 +105,33 @@ export const Menu = () => {
             Coin<strong>Synch</strong>
           </b>
         </S.TitleModal>
+        <FormProvider {...methods}>
+          <S.FormSign action="" onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <InputRHF name="email" placeholder="Email" type="email" icon={<AiOutlineMail />} />
+              <span className="error">{errors.email?.message}</span>
+            </div>
+            <S.ContentInputPassword>
+              <div>
+                <InputRHF
+                  name="password"
+                  isPassword
+                  placeholder="Password"
+                  type="password"
+                  icon={<BiLock />}
+                />
+                <span className="error">{errors.password?.message}</span>
+              </div>
 
-        <S.FormSign action="">
-          <Input name="email" placeholder="Email" type="email" icon={<AiOutlineMail />} />
-
-          <S.ContentInputPassword>
-            <Input name="password" isPassword placeholder="Password" type="password" icon={<BiLock />} />
-            <span>Forgot password?</span>
-            <Button text="Sign in" size="medium" />
-          </S.ContentInputPassword>
-          <p>
-            Don’t have an account? <b>Sign up to</b> <span>Coin</span>
-            <strong>Synch</strong>
-          </p>
-        </S.FormSign>
+              <span>Forgot password?</span>
+              <Button text="Sign in" size="medium" onClick={() => handleSubmit(onSubmit)()} />
+            </S.ContentInputPassword>
+            <p>
+              Don’t have an account? <b>Sign up to</b> <span>Coin</span>
+              <strong>Synch</strong>
+            </p>
+          </S.FormSign>
+        </FormProvider>
       </Modal>
 
       <Modal isOpen={isOpenModalSignUp} onClose={() => setIsOpenModalSignUp(false)}>

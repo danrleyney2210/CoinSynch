@@ -22,8 +22,12 @@ export function AuthProvider({ children }: Props) {
 
   const AuthLogin = async (data: TUser) => {
     setIsLoading(true)
-    setIsError(true)
-    setIsLoading(false)
+    if (data.email == 'eu@asynch.com' && data.password == '123') {
+      navigate('dashboard')
+      setIsLoading(false)
+    } else {
+      setIsError(true)
+    }
   }
 
   const getCoin = async (size: number) => {

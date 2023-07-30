@@ -58,8 +58,8 @@ export const ContentCoint = styled.div`
 `;
 
 export const Exchange = styled.div`
-  max-width: 360px;
-  width: 100%;
+  width: 360px;
+
   display: flex;
   /* background-color: #ccc; */
 
@@ -159,7 +159,7 @@ export const IsMobileExchange = styled.div`
     color: ${({ theme }) => theme.secondary[600]};
     white-space: nowrap;
     font-size: 12px;
-    animation: moveLeft 60s linear infinite;
+    animation: moveLeft 15s linear infinite;
 
     > b {
       font-size: 14px;
@@ -228,6 +228,11 @@ export const FormSign = styled.form`
   flex-direction: column;
   gap: 24px;
 
+  .error {
+    color: #a12226;
+    font-size: 12px;
+  }
+
   > p {
     text-align: center;
     font-size: 14px;
@@ -256,6 +261,10 @@ export const ContentInputPassword = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 9px;
+
+  > div {
+    width: 100%;
+  }
 
   span {
     font-size: 12px;

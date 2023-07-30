@@ -1,3 +1,8 @@
+export type TForm = {
+  email: string;
+  password: string;
+};
+
 export interface IcoinProps {
   rank: number
   name: string
