@@ -47,16 +47,17 @@ export const Name = styled.div`
 export const Logout = styled.div`
   position: absolute;
   height: fit-content;
+
   width: 150px;
   background-color: #fff;
-  padding: 16px;
+  padding: 23px;
   right: 30px;
   top: 70px;
   bottom: -16px;
   border-radius: 6px;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  gap: 16px;
 
   > span {
     color: ${({ theme }) => theme.secondary[500]};

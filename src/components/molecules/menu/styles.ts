@@ -55,7 +55,6 @@ export const ContentCoint = styled.div`
   display: flex;
   align-items: center;
   gap: 80px;
-  /* width: 100%; */
 `;
 
 export const Exchange = styled.div`
@@ -73,7 +72,7 @@ export const Exchange = styled.div`
     color: ${({ theme }) => theme.secondary[600]};
     white-space: nowrap;
     font-size: 14px;
-    animation: moveLeft 15s linear infinite;
+    animation: moveLeft 25s linear infinite;
 
     > b {
       font-size: 14px;

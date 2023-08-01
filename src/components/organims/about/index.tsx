@@ -4,13 +4,8 @@ import Icon2 from "../../../assets/icons/icon2.svg";
 import Icon3 from "../../../assets/icons/icon3.svg";
 import Icon4 from "../../../assets/icons/icon4.svg";
 import { Button } from "../../atomos/button";
-import { Modal } from "../../atomos/modal";
-import { ModalSignUp } from "../../molecules/ModalSignUp";
-import { useState } from "react";
 
 export const About = () => {
-  const [isOpenModalSignUp, setIsOpenModalSignUp] = useState<boolean>(false);
-
   return (
     <S.Wrapper id="about">
       <S.Container>
@@ -22,7 +17,7 @@ export const About = () => {
             luctus venenatis, lectus magna fringilla urna, porttitor
           </p>
 
-          <Button text="Sign up now" onClick={() => setIsOpenModalSignUp(!isOpenModalSignUp)} />
+          <Button text="Sign up now" />
         </S.isMobileContentDescription>
 
         <S.ContetCard>
@@ -67,13 +62,44 @@ export const About = () => {
             luctus venenatis, lectus magna fringilla urna, porttitor
           </p>
 
-          <Button text="Sign up now" onClick={() => setIsOpenModalSignUp(true)} />
+          <Button text="Sign up now" />
         </S.ContentDescription>
       </S.Container>
 
-      <Modal isOpen={isOpenModalSignUp} onClose={() => setIsOpenModalSignUp(false)}>
-        <ModalSignUp />
-      </Modal>
+
+      <S.ContetCardMobile>
+        <S.RowCard>
+          <S.Card className="first-card">
+            <img src={Icon1} />
+            <S.SubTitle>For your company</S.SubTitle>
+            <S.Title>Crypto Solutions</S.Title>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,</span>
+          </S.Card>
+
+          <S.Card className="left">
+            <img src={Icon2} />
+            <S.SubTitle>For your company</S.SubTitle>
+            <S.Title>Crypto Solutions</S.Title>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,</span>
+          </S.Card>
+        </S.RowCard>
+
+        <S.RowCard className="right">
+          <S.Card>
+            <img src={Icon3} />
+            <S.SubTitle>For your company</S.SubTitle>
+            <S.Title>Crypto Solutions</S.Title>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,</span>
+          </S.Card>
+
+          <S.Card>
+            <img src={Icon4} />
+            <S.SubTitle>For your company</S.SubTitle>
+            <S.Title>Crypto Solutions</S.Title>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,</span>
+          </S.Card>
+        </S.RowCard>
+      </S.ContetCardMobile>
     </S.Wrapper>
   );
 };

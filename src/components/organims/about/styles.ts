@@ -12,6 +12,8 @@ export const Wrapper = styled.div`
 
   @media (max-width: 600px) {
     padding-bottom: 56px;
+    flex-direction: column;
+    padding: 80px 0;
   }
 `;
 
@@ -81,6 +83,42 @@ export const ContetCard = styled.div`
     width: 100%;
     overflow-x: auto;
     padding: 0;
+
+    display: none;
+  }
+`;
+
+export const ContetCardMobile = styled.div`
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 696px;
+  display: none;
+  .left {
+    justify-content: flex-start;
+  }
+
+  .right {
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 773px) {
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    padding: 0;
+
+    display: flex;
+
+    .first-card {
+      margin-left: 24px;
+    }
   }
 `;
 
@@ -219,5 +257,9 @@ export const isMobileContentDescription = styled.div`
     > button {
       display: none;
     }
+  }
+
+  @media (max-width: 540px) {
+    padding-left: 24px;
   }
 `;

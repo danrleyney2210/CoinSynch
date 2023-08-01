@@ -39,4 +39,8 @@ export const ContentModal = styled.div`
     top: 16px;
     cursor: pointer;
   }
+
+  @media (max-width: 600px) {
+    max-width: 350px;
+  }
 `;
