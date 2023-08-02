@@ -90,12 +90,12 @@ Você pode visualizar o layout do projeto através desse <a href="https://www.fi
 #### Mobile
 
 
-<h1 align="center">
-  <img alt="CoinSync" title="CoinSync" src=".github/home-mobile.png" width="250" />
+<h1 align="center" >
+  <img alt="CoinSync" title="CoinSync" src=".github/home-mobile.png" width="200" hight="500" />
 
-  <img alt="CoinSync" title="CoinSync" src=".github/about-mobile.png" width="250" />
+  <img alt="CoinSync" title="CoinSync" src=".github/about-mobile.png" width="200" hight="500" />
 
-   <img alt="CoinSync" title="CoinSync" src=".github/top-crypto-mobile.png" width="250" />
+   <img alt="CoinSync" title="CoinSync" src=".github/top-crypto-mobile.png" width="200" hight="500" />
 </h1>
 
 
@@ -107,32 +107,20 @@ Como executar o projeto 🚀
 
 
 #### Clone este repositório :
-> git clone https://github.com/danrleyney2210/CoinSynch.git
+1 - git clone https://github.com/danrleyney2210/CoinSynch.git
 
-#### Acesse a pasta do projeto no seu terminal/cmd:
+2 - Acesse a pasta do projeto no seu terminal/cmd:
 > cd coinSynch
 
-#### check se esta na banch develop
+3 - check se esta na banch develop
+4 - Instale as dependências :
+> **yarn** ou **npm install**
 
-#### Instalando dependências :
-> yarn
-
-###  ou
-
-> npm install
-
-### Execute a aplicação em modo de desenvolvimento
-> yarn dev
-
-###   ou
-
-> npm run dev
-
-### Comandos para build
+4 - Execute a aplicação em modo de desenvolvimento
+> **yarn dev** ou  **npm run dev**
+#### Comandos para build
 > yarn build
 
-### Depois
-> yarn start
 
 ----
 ---
@@ -169,13 +157,14 @@ Veja o arquivo <a>package.json</a>
 ---
 ### 🦸 Desenvolvedor 🤘
 
-<img width="120" src="./public/img/eu.png"/>
+<img width="120" src=".github/eu.png"/>
 
-## 📝 Licença
-Este projeto esta sobe a licença MIT.
+
 
 Feito com ❤️ por Danrley Ney 👋🏽 Entre em contato!
 
 > Email: danrley.dev@gmail.com
+
+> www.danrley.dev
 
 > Twitter: @danrleyney
