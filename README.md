@@ -77,12 +77,11 @@ Você pode visualizar o layout do projeto através desse <a href="https://www.fi
 + Typescript
 
 # 🎨 Layout
-#### Home page
+#### Desktop
 <h1 align="center">
   <img alt="CoinSync" title="CoinSync" src=".github/home.png" />
 </h1>
 
-#### Top Crypto
 <h1 align="center">
   <img alt="CoinSync" title="CoinSync" src=".github/topCrypto.png" />
 </h1>
@@ -96,6 +95,8 @@ Você pode visualizar o layout do projeto através desse <a href="https://www.fi
   <img alt="CoinSync" title="CoinSync" src=".github/about-mobile.png" width="200" hight="500" />
 
    <img alt="CoinSync" title="CoinSync" src=".github/top-crypto-mobile.png" width="200" hight="500" />
+
+  <img alt="CoinSync" title="CoinSync" src=".github/footer-mobile.png" width="200" hight="500" />
 </h1>
 
 
@@ -123,7 +124,7 @@ Como executar o projeto 🚀
 
 
 ----
----
+
 
 # 🛠 Tecnologias
 
