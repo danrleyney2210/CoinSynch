@@ -4,7 +4,7 @@
   <img alt="CoinSync" title="CoinSync" src=".github/logo-coinsync.png" width="200" />
 </h1>
 
-![Layout do eduick](./.github/capa-coinsync.png)
+![Layout do coinsync](./.github/capa-coinsync.png)
 
 > Status: concluído 🚀
 ### Desafio para desenvolvedor front-end para - EduSynch
@@ -77,6 +77,30 @@ Você pode visualizar o layout do projeto através desse <a href="https://www.fi
 + Typescript
 
 # 🎨 Layout
+#### Home page
+<h1 align="center">
+  <img alt="CoinSync" title="CoinSync" src=".github/home.png" />
+</h1>
+
+#### Top Crypto
+<h1 align="center">
+  <img alt="CoinSync" title="CoinSync" src=".github/topCrypto.png" />
+</h1>
+
+#### Mobile
+
+
+<h1 align="center">
+  <img alt="CoinSync" title="CoinSync" src=".github/home-mobile.png" width="250" />
+
+  <img alt="CoinSync" title="CoinSync" src=".github/about-mobile.png" width="250" />
+
+   <img alt="CoinSync" title="CoinSync" src=".github/top-crypto-mobile.png" width="250" />
+</h1>
+
+
+
+
 
 
 Como executar o projeto 🚀
