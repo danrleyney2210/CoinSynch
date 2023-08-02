@@ -10,7 +10,7 @@ import { Nft } from "../../components/atomos/nft";
 import { MyWallet } from "../../components/atomos/myWallate";
 
 export const Dashboard = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen] = useState(false)
 
 
   return (

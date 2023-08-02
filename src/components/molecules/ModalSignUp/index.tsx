@@ -1,11 +1,12 @@
 import { ReactSVG } from 'react-svg'
-import { Checkbox } from '../../atomos/Checkbox'
+
 import { Button } from '../../atomos/button'
 import { Input } from '../../atomos/input'
 import * as S from './styles'
 import { AiOutlineMail } from 'react-icons/ai'
 import { BiLock } from 'react-icons/bi'
 import User from "../../../assets/icons/user.svg";
+import { Checkbox } from '../../atomos/checkbox'
 
 
 export const ModalSignUp = () => {

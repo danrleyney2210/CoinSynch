@@ -122,6 +122,10 @@ Como executar o projeto 🚀
 #### Comandos para build
 > yarn build
 
+### Usuário e senha para LOGIN
+> Email : eu@asynch.com
+> Senha: 123
+
 
 ----
 

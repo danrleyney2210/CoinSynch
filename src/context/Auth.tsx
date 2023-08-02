@@ -13,7 +13,7 @@ export function AuthProvider({ children }: Props) {
   const [auth, setAuth] = useState(false)
   const [isError, setIsError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [user, setUser] = useState<TUser>({
+  const [user] = useState<TUser>({
     email: '',
     password: ''
   } as TUser)
