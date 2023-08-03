@@ -153,7 +153,7 @@ jse o navegador.
 
 Veja o arquivo <a>package.json</a>
 
-> link de deploy : https://challenge-logoipsum.vercel.app/
+
 
 > Utilitários
 + Protótipo: Figma
