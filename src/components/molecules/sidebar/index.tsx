@@ -1,7 +1,7 @@
 
 import * as S from './styles'
 import Wallet from '../../../assets/icons/wallet.svg'
-import Cryp from '../../../assets/icons/Crypto.svg'
+import Cryp from '../../../assets/icons/crypto.svg'
 import Currency from '../../../assets/icons/currency.svg'
 import Graph from '../../../assets/icons/graph.svg'
 import { ReactSVG } from 'react-svg'
