@@ -119,14 +119,15 @@ lembrar que você precisa ter uma conta no Figma para acessá-lo. (O cadastro é
 
 ### Teste automatizado de Login com Cypresscom usando credenciais
 
-> Teste realizado para efetuar Login para ser direcionado ao dashboard. Para exeutar o teste basta
-> rodar o comando: yarn cypress open.
-> <img alt="CoinSync" title="Teste" src=".github/testeLogin.gif" /> >
-> <img alt="CoinSync" title="Teste" src=".github/test.gif" />
+> Teste realizado para efetuar Login para ser direcionado ao dashboard.
+>
+> > Para exeutar o teste basta rodar o comando: yarn cypress open.
+> > <img alt="CoinSync" title="Teste" src=".github/testeLogin.png" /> >
+> > <img alt="CoinSync" title="Teste" src=".github/test.gif" />
 
-> Como executar o projeto ? 🚀
+## Como executar o projeto ? 🚀
 
-#### Clone este repositório :
+> Clone este repositório :
 
 1 - git clone https://github.com/danrleyney2210/CoinSynch.git
 
