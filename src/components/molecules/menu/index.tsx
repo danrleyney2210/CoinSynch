@@ -108,13 +108,14 @@ export const Menu = () => {
         <FormProvider {...methods}>
           <S.FormSign action="" onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <InputRHF name="email" placeholder="Email" type="email" icon={<AiOutlineMail />} />
+              <InputRHF name="email" placeholder="Email" id="email" type="email" icon={<AiOutlineMail />} />
               <span className="error">{errors.email?.message}</span>
             </div>
             <S.ContentInputPassword>
               <div>
                 <InputRHF
                   name="password"
+                  id="password"
                   isPassword
                   placeholder="Password"
                   type="password"
