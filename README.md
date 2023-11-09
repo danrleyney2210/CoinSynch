@@ -122,7 +122,7 @@ lembrar que você precisa ter uma conta no Figma para acessá-lo. (O cadastro é
 > Teste realizado para efetuar Login para ser direcionado ao dashboard.
 >
 > > Para exeutar o teste basta rodar o comando: yarn cypress open.
-> > <img alt="CoinSync" title="Teste" src=".github/testeLogin.png" /> >
+> > <img alt="CoinSync" title="Teste" src=".github/testeLogin.png" width="400" hight="300"/> >
 > > <img alt="CoinSync" title="Teste" src=".github/test.gif" />
 
 ## Como executar o projeto ? 🚀
