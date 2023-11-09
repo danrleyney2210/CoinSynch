@@ -117,10 +117,14 @@ lembrar que você precisa ter uma conta no Figma para acessá-lo. (O cadastro é
   <img alt="CoinSync" title="CoinSync" src=".github/footer-mobile.png" width="200" hight="500" />
 </h1>
 
-### Testando Login com credenciais
+### Teste automatizado de Login com Cypresscom usando credenciais
 
-<img alt="CoinSync" title="Teste" src=".github/test.gif" />
-Como executar o projeto 🚀
+> Teste realizado para efetuar Login para ser direcionado ao dashboard. Para exeutar o teste basta
+> rodar o comando: yarn cypress open.
+> <img alt="CoinSync" title="Teste" src=".github/testeLogin.gif" /> >
+> <img alt="CoinSync" title="Teste" src=".github/test.gif" />
+
+> Como executar o projeto ? 🚀
 
 #### Clone este repositório :
 
