@@ -105,6 +105,10 @@ lembrar que você precisa ter uma conta no Figma para acessá-lo. (O cadastro é
   <img alt="CoinSync" title="CoinSync" src=".github/topCrypto.png" />
 </h1>
 
+<h1 align="center">
+  <img alt="CoinSync" title="CoinSync" src=".github/dashboard.png" />
+</h1>
+
 #### Mobile
 
 <h1 align="center" >
