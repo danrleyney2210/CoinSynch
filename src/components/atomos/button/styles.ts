@@ -21,6 +21,15 @@ export const Button = styled.button<IButtonSizeProps>`
   justify-content: center;
   gap: 8px;
 
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+
+    &:hover {
+      background-color: #ccc !important;
+    }
+  }
+
   &:hover {
     background-color: ${({ theme }) => theme.primary[400]};
   }

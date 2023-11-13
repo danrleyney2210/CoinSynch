@@ -1,14 +1,14 @@
-import { useFormContext, Controller, RegisterOptions } from 'react-hook-form';
-import { Input } from '../../input';
-import { IInputProps } from '../../input/types';
+import { Controller, UseControllerProps, FieldValues } from "react-hook-form";
+import { Input } from "../../input";
+import { IInputProps } from "../../input/types";
 
-export interface IInputRHF extends Omit<IInputProps, 'name'> {
+export interface IInputRHF extends IInputProps {
   name: string;
-  rules?: RegisterOptions<any, any>;
 }
 
-export const InputRHF = ({
+export function InputRHF<FormType extends FieldValues>({
   label,
+  control,
   id,
   name,
   placeholder,
@@ -16,26 +16,25 @@ export const InputRHF = ({
   type,
   rules,
   ...rest
-}: IInputRHF) => {
-  const { control } = useFormContext();
-
+}: UseControllerProps<FormType> & IInputRHF) {
   return (
     <Controller
       name={name}
       control={control}
       rules={rules}
-      render={({ field: { value, onChange } }) => (
+      render={({ field, fieldState }) => (
         <Input
-          {...rest}
+          errorMessage={fieldState.error?.message}
           label={label}
-          isPassword={!!isPassword} // Ensure it's boolean (convert to true/false)
+          isPassword={!!isPassword}
           id={id}
           type={type}
           placeholder={placeholder}
-          value={value}
-          onChange={(e) => onChange(e.target.value)} // Pass only the value to onChange
+          value={field.value}
+          onChange={field.onChange}
+          {...rest}
         />
       )}
     />
   );
-};
+}

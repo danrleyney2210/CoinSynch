@@ -8,6 +8,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   placeholder?: string;
   isPassword?: boolean;
+  errorMessage?: string;
 }
 
 export interface ITypeProps {

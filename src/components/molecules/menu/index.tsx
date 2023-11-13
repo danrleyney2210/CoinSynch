@@ -9,11 +9,11 @@ import { ReactSVG } from "react-svg";
 import MenuMobile from "../../../assets/icons/menu.svg";
 import { useAuth } from "../../../context/Auth";
 import { ModalSignUp } from "../ModalSignUp";
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { InputRHF } from "../../atomos/RFH/InputRHF";
-import { TForm } from "./types";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signUpSchema, SignUpSchema } from "./signUpSchema";
 
 export const Menu = () => {
   const [isOpenModalSignIn, setIsOpenModalSignIn] = useState<boolean>(false);
@@ -21,21 +21,16 @@ export const Menu = () => {
 
   const { coins, formatCoint, formatChange, AuthLogin } = useAuth();
 
-  const schema = yup.object().shape({
-    email: yup.string().email("Email inválido").required("Email obrigatório"),
-    password: yup.string().required("Senha obrigatória"),
+  const { control, formState, handleSubmit } = useForm<SignUpSchema>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onChange",
   });
 
-  const methods = useForm<TForm>({
-    resolver: yupResolver(schema),
-  });
-
-  const {
-    handleSubmit,
-    formState: { errors },
-  } = methods;
-
-  const onSubmit = (data: TForm) => {
+  const onSubmit = (data: SignUpSchema) => {
     AuthLogin(data);
   };
 
@@ -105,34 +100,44 @@ export const Menu = () => {
             Coin<strong>Synch</strong>
           </b>
         </S.TitleModal>
-        <FormProvider {...methods}>
-          <S.FormSign action="" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <InputRHF name="email" placeholder="Email" id="email" type="email" icon={<AiOutlineMail />} />
-              <span className="error">{errors.email?.message}</span>
-            </div>
-            <S.ContentInputPassword>
-              <div>
-                <InputRHF
-                  name="password"
-                  id="password"
-                  isPassword
-                  placeholder="Password"
-                  type="password"
-                  icon={<BiLock />}
-                />
-                <span className="error">{errors.password?.message}</span>
-              </div>
 
-              <span>Forgot password?</span>
-              <Button text="Sign in" size="medium" onClick={() => handleSubmit(onSubmit)()} />
-            </S.ContentInputPassword>
-            <p>
-              Don’t have an account? <b>Sign up to</b> <span>Coin</span>
-              <strong>Synch</strong>
-            </p>
-          </S.FormSign>
-        </FormProvider>
+        <S.FormSign action="">
+          <div>
+            <InputRHF
+              control={control}
+              name="email"
+              placeholder="Email"
+              id="email"
+              type="email"
+              icon={<AiOutlineMail />}
+            />
+          </div>
+          <S.ContentInputPassword>
+            <div>
+              <InputRHF
+                control={control}
+                name="password"
+                id="password"
+                isPassword
+                placeholder="Password"
+                type="password"
+                icon={<BiLock />}
+              />
+            </div>
+
+            <span>Forgot password?</span>
+            <Button
+              disabled={!formState.isValid}
+              text="Sign in"
+              size="medium"
+              onClick={() => handleSubmit(onSubmit)()}
+            />
+          </S.ContentInputPassword>
+          <p>
+            Don’t have an account? <b>Sign up to</b> <span>Coin</span>
+            <strong>Synch</strong>
+          </p>
+        </S.FormSign>
       </Modal>
 
       <Modal isOpen={isOpenModalSignUp} onClose={() => setIsOpenModalSignUp(false)}>

@@ -20,7 +20,7 @@ export function AuthProvider({ children }: Props) {
 
   const navigate = useNavigate()
 
-  const AuthLogin = async (data: TUser) => {
+  async function AuthLogin(data: TUser) {
     setIsLoading(true)
     if (data.email == 'eu@asynch.com' && data.password == '123') {
       toast.success("Login efetuado com sucesso!")

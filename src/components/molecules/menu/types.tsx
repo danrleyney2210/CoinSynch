@@ -1,4 +1,4 @@
-export type TForm = {
+export type TLoginForm = {
   email: string;
   password: string;
 };

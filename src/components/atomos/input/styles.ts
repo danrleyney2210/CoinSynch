@@ -16,6 +16,12 @@ export const Wrapper = styled.div<ITypeProps>`
     line-height: 16px;
     margin-bottom: ${(props) => (props.label ? "16px" : "")};
   }
+
+  span {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+  }
 `;
 
 export const ContentInput = styled.div`
