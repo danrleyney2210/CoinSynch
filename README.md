@@ -133,7 +133,11 @@ lembrar que você precisa ter uma conta no Figma para acessá-lo. (O cadastro é
 
 2 - Ao ser redirecionado para página selecione o teste que deseja executar
 
-<img alt="CoinSync" title="Teste" src=".github/cypress.png" width="400" hight="300"/> >
+<img alt="CoinSync" title="Teste" src=".github/cypressLogin.png" width="400" hight="300"/> >
+
+### Validação de formulário com React hook form + Zod
+
+<img alt="CoinSync" title="Teste" src=".github/validation.png" /> >
 
 ## Como executar o projeto ? 🚀
 
